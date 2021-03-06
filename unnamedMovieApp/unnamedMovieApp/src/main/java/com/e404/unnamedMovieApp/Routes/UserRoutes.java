@@ -5,37 +5,39 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class UserRoutes {
 
-    @GetMapping
+    public final String API = "/user/";
+
+    @GetMapping(API + "GetUser")
     public void GetUser() {
         return;
     }
 
-    @DeleteMapping
+    @DeleteMapping(API + "DeleteUser")
     public void DeleteUser() {
         return;
     }
 
-    @PutMapping
+    @PutMapping(API + "EditUser")
     public void EditUser() {
         return;
     }
 
-    @PutMapping
+    @PutMapping(API + "CreateUser")
     public void CreateUser() {
         return;
     }
 
-    @PostMapping
+    @PostMapping(API + "LikeMovie")
     public void LikeMovie() {
         return;
     }
 
-    @PostMapping
+    @PostMapping(API + "DislikeMovie")
     public void DislikeMovie() {
         return;
     }
 
-    @PostMapping
+    @PostMapping(API + "SkipMovie")
     public void SkipMovie() {
         return;
     }

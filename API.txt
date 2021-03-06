@@ -1,3 +1,17 @@
 Routes:
     /hello - Returns Hello World
-    /65
+    
+    /user:
+        /GetUser            - GET
+        /CreateUser         - POST
+        /EditUser           - PUT
+        /DeleteUser         - DELETE
+        /Like               - PUT
+        /Dislike            - PUT
+        /Skip               - PUT
+    
+    /movie:
+        /GetSingleMovie     - GET
+        /GetMovieGroup      - GET
+        /GetMovieOnLikes    - GET
+        
