@@ -1,9 +1,6 @@
 package com.e404.unnamedMovieApp.Routes;
 
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class UserRoutes {
@@ -18,14 +15,28 @@ public class UserRoutes {
         return;
     }
 
-    @PostMapping
+    @PutMapping
     public void EditUser() {
         return;
     }
 
-    @PostMapping
+    @PutMapping
     public void CreateUser() {
         return;
     }
 
+    @PostMapping
+    public void LikeMovie() {
+        return;
+    }
+
+    @PostMapping
+    public void DislikeMovie() {
+        return;
+    }
+
+    @PostMapping
+    public void SkipMovie() {
+        return;
+    }
 }
