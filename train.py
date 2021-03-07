@@ -95,4 +95,4 @@ user1 = {"name": "sam", "rated_movies": {"The Matrix":1, "Alien":1, "The Shining
 user2 = {"name": "colin", "rated_movies": {"The Lord of the Rings: The Return of the King":1, "Titanic":0}}
 data = vectorize_data(df)
 
-get_recomendations(user2, data)
+output = get_recomendations(user2, data)
