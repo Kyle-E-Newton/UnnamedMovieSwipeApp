@@ -1,8 +1,6 @@
 package com.e404.unnamedMovieApp;
 
-import com.e404.unnamedMovieApp.Database.CSVReader;
-import com.e404.unnamedMovieApp.Database.JythonRunner;
-import com.e404.unnamedMovieApp.Objects.Movie;
+import com.e404.unnamedMovieApp.Database.PythonCompat;
 import com.e404.unnamedMovieApp.Repository.IMovieRepository;
 import com.e404.unnamedMovieApp.Repository.IUserRepository;
 import org.slf4j.Logger;
@@ -14,8 +12,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.sql.Date;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -57,7 +53,7 @@ public class UnnamedMovieAppApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		logger.info("CSV");
 		//readCSV();
-		JythonRunner runner = new JythonRunner();
+		PythonCompat runner = new PythonCompat();
 		runner.TestPythonCode();
 	}
 }
