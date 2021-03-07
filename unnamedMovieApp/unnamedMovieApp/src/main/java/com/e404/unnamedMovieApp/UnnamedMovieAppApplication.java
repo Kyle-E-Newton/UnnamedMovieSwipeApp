@@ -1,5 +1,6 @@
 package com.e404.unnamedMovieApp;
 
+import com.e404.unnamedMovieApp.Database.PythonCompat;
 import com.e404.unnamedMovieApp.Repository.IMovieRepository;
 import com.e404.unnamedMovieApp.Repository.IUserRepository;
 import com.opencsv.CSVReader;
@@ -54,6 +55,8 @@ public class UnnamedMovieAppApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		logger.info("CSV");
-		readCSV();
+		//readCSV();
+		PythonCompat runner = new PythonCompat();
+		runner.TestPythonCode();
 	}
 }

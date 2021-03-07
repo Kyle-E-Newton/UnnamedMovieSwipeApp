@@ -2,3 +2,4 @@
 archive/*
 *.db
 .idea/*
+./jython_cache/*

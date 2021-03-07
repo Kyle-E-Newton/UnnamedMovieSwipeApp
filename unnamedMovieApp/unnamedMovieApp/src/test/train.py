@@ -88,6 +88,10 @@ def get_recomendations(user, data):
 	output = []
 	for i in (range(len(best_movies))):
 		output.append(best_movies[i])
+<<<<<<< HEAD:train.py
+=======
+	return output
+>>>>>>> 2a97c6600b9e9d6ef8f903e4db898a869fd22c6f:unnamedMovieApp/unnamedMovieApp/src/test/train.py
 
 
 df = query_database()
@@ -95,4 +99,5 @@ user1 = {"name": "sam", "rated_movies": {"The Matrix":1, "Alien":1, "The Shining
 user2 = {"name": "colin", "rated_movies": {"The Lord of the Rings: The Return of the King":1, "Titanic":0}}
 data = vectorize_data(df)
 
-get_recomendations(user2, data)
+output = get_recomendations(user2, data)
+print(output)
