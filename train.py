@@ -17,11 +17,11 @@ def query_database():
 
 def create_tokens(row):
 	vector = CountVectorizer().fit_transform(row).toarray()
-	print(vector.shape)
+	#print(vector.shape)
 	return vector
 
 def vectorize_data(df):
-	print(df.keys().tolist())
+	#print(df.keys().tolist())
 	data = {}
 	data.update({"Poster_Link":df["Poster_Link"]})
 	data.update({"Series_Title":df["Series_Title"]})
@@ -53,7 +53,7 @@ def calculate_score(rated_movies, data, i):
 			x[1] += cosine_similarity(data["Certificate"][movie_indicies[j]].reshape(1,-1), data["Certificate"][i].reshape(1,-1))[0][0]
 			#x[2] += 1 - abs(data["Runtime"][movie_indicies[j]]/max_runtime - data["Runtime"][i]/max_runtime)
 			x[3] += cosine_similarity(data["Genre"][movie_indicies[j]].reshape(1,-1), data["Genre"][i].reshape(1,-1))[0][0]
-			x[4] += data["IMDB_Rating"][i]
+			x[4] += data["IMDB_Rating"][i] / 10
 			x[5] += cosine_similarity(data["Overview"][movie_indicies[j]].reshape(1,-1), data["Overview"][i].reshape(1,-1))[0][0]
 			x[6] += cosine_similarity(data["Director"][movie_indicies[j]].reshape(1,-1), data["Director"][i].reshape(1,-1))[0][0]
 			x[7] += cosine_similarity(data["Star1"][movie_indicies[j]].reshape(1,-1), data["Star1"][i].reshape(1,-1))[0][0]
@@ -68,14 +68,25 @@ def get_recomendations(user, data):
 	for i in range(len(scores)):
 		scores[i] = calculate_score(rated_movies, data, i)
 	#print(scores)
-	top_idx = np.argsort(scores)[-10:]
-	best_movies, best_ratings = data["Series_Title"][top_idx], data["IMDB_Rating"][top_idx]
-	print(best_movies.tolist(), best_ratings.tolist())
+
+	top_idx = np.argsort(scores)
+	best_movies, best_ratings = data["Series_Title"][top_idx][::-1].tolist(), data["IMDB_Rating"][top_idx][::-1].tolist()
+	for movie in rated_movies.keys():
+		if movie in best_movies:
+			index = best_movies.index(movie)
+			best_movies.pop(index)
+			best_ratings.pop(index)
+	best_movies = best_movies[:10]
+	best_ratings = best_ratings[:10]
+	
+	print()
+	for i, j in  zip(best_movies, best_ratings):
+		print(i, j)
 
 
 df = query_database()
-user1 = {"name": "sam", "rated_movies": {"Matrix":1, "Alien":1, "Shining":1, }}
+user1 = {"name": "sam", "rated_movies": {"The Matrix":1, "Alien":1, "The Shining":1, }}
 user2 = {"name": "colin", "rated_movies": {"The Lord of the Rings: The Return of the King":1}}
 data = vectorize_data(df)
 
-get_recomendations(user2, data)
+get_recomendations(user1, data)
