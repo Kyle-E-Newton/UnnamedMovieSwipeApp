@@ -87,7 +87,7 @@ def get_recomendations(user, data):
 		print(best_movies[i], best_ratings[i])
 	output = []
 	for i in (range(len(best_movies))):
-		output.append({"name": best_movies[i], "rating": best_ratings[i], "url": http_paths[i], "certificate": certificates[i]})
+		output.append(best_movies[i])
 
 
 df = query_database()
