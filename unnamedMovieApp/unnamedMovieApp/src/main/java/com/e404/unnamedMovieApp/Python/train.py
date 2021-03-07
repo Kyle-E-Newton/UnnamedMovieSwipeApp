@@ -6,7 +6,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 
 
 def query_database():
-	con = sqlite3.connect('../IMDb.db')
+	con = sqlite3.connect('unnamedMovieApp/unnamedMovieApp/src/main/resources/IMDb.db')
 	cur = con.cursor()
 	df = pd.read_sql_query("""select Poster_Link, Series_Title, Released_Year, Certificate, Runtime, Genre, IMDB_Rating, Overview, Director, Star1, Star2, Star3
 							from imdb_top_1000
@@ -81,7 +81,7 @@ def get_recomendations(user, data):
 			best_ratings.pop(index)
 	best_movies = best_movies[:20]
 	best_ratings = best_ratings[:20]
-	
+
 	print()
 	for i in (range(len(best_movies))):
 		print(best_movies[i], best_ratings[i])

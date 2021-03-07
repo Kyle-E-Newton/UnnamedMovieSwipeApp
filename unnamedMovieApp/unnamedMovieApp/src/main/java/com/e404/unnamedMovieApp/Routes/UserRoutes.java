@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -23,6 +24,11 @@ public class UserRoutes {
     @GetMapping(API + "GetUser")
     public User GetUser(@RequestHeader String UUID) {
         return userRepository.findUserByuuid(UUID);
+    }
+
+    @GetMapping(API + "GetUserByEmailPassword")
+    public User GetUserByEmailPassword(@RequestHeader String email, @RequestHeader String password) {
+        return userRepository.findUserByEmailAndEncodedPassword(email, password);
     }
 
     @DeleteMapping(API + "DeleteUser")
