@@ -28,7 +28,7 @@ def vectorize_data(df):
 	data.update({"Released_Year":df["Released_Year"]})
 	data.update({"Certificate":create_tokens(df["Certificate"])})
 	data.update({"Runtime":create_tokens(df["Runtime"])})
-	data.update({"Genre":create_tokens(df["Genre"])})
+	data.update({"Genre":create_tokens([i.replace(',', '') for i in df["Genre"].tolist()])})
 	data.update({"IMDB_Rating":df["IMDB_Rating"]})
 	data.update({"Overview":create_tokens(df["Overview"])})
 	data.update({"Director":create_tokens(df["Director"])})
@@ -50,15 +50,15 @@ def calculate_score(rated_movies, data, i):
 	for j, movie in enumerate(movie_names):
 		if movie in data["Series_Title"].tolist():
 			#x[0] += 1 - np.abs(data["Release_Year"][movie_indicies[j]]/max_year - data["Release_Year"][i]/max_year)
-			x[1] += cosine_similarity(data["Certificate"][movie_indicies[j]].reshape(1,-1), data["Certificate"][i].reshape(1,-1))[0][0]
+			x[1] += cosine_similarity(data["Certificate"][movie_indicies[j]].reshape(1,-1), data["Certificate"][i].reshape(1,-1))[0][0] * (-1 if rated_movies[movie] == 0 else 1)
 			#x[2] += 1 - abs(data["Runtime"][movie_indicies[j]]/max_runtime - data["Runtime"][i]/max_runtime)
-			x[3] += cosine_similarity(data["Genre"][movie_indicies[j]].reshape(1,-1), data["Genre"][i].reshape(1,-1))[0][0]
-			x[4] += data["IMDB_Rating"][i] / 10
-			x[5] += cosine_similarity(data["Overview"][movie_indicies[j]].reshape(1,-1), data["Overview"][i].reshape(1,-1))[0][0]
-			x[6] += cosine_similarity(data["Director"][movie_indicies[j]].reshape(1,-1), data["Director"][i].reshape(1,-1))[0][0]
-			x[7] += cosine_similarity(data["Star1"][movie_indicies[j]].reshape(1,-1), data["Star1"][i].reshape(1,-1))[0][0]
-			x[8] += cosine_similarity(data["Star2"][movie_indicies[j]].reshape(1,-1), data["Star2"][i].reshape(1,-1))[0][0]
-			x[9] += cosine_similarity(data["Star3"][movie_indicies[j]].reshape(1,-1), data["Star3"][i].reshape(1,-1))[0][0]
+			x[3] += 3 * cosine_similarity(data["Genre"][movie_indicies[j]].reshape(1,-1), data["Genre"][i].reshape(1,-1))[0][0] * (-1 if rated_movies[movie] == 0 else 1)
+			x[4] += (data["IMDB_Rating"][i] / 10)  * (-1 if rated_movies[movie] == 0 else 1)
+			x[5] += 2 * cosine_similarity(data["Overview"][movie_indicies[j]].reshape(1,-1), data["Overview"][i].reshape(1,-1))[0][0] * (-1 if rated_movies[movie] == 0 else 1)
+			x[6] += cosine_similarity(data["Director"][movie_indicies[j]].reshape(1,-1), data["Director"][i].reshape(1,-1))[0][0] * (-1 if rated_movies[movie] == 0 else 1)
+			x[7] += cosine_similarity(data["Star1"][movie_indicies[j]].reshape(1,-1), data["Star1"][i].reshape(1,-1))[0][0] * (-1 if rated_movies[movie] == 0 else 1)
+			x[8] += cosine_similarity(data["Star2"][movie_indicies[j]].reshape(1,-1), data["Star2"][i].reshape(1,-1))[0][0] * (-1 if rated_movies[movie] == 0 else 1)
+			x[9] += cosine_similarity(data["Star3"][movie_indicies[j]].reshape(1,-1), data["Star3"][i].reshape(1,-1))[0][0] * (-1 if rated_movies[movie] == 0 else 1)
 	return np.sum(x)
 
 def get_recomendations(user, data):
@@ -70,23 +70,29 @@ def get_recomendations(user, data):
 	#print(scores)
 
 	top_idx = np.argsort(scores)
-	best_movies, best_ratings = data["Series_Title"][top_idx][::-1].tolist(), data["IMDB_Rating"][top_idx][::-1].tolist()
+	http_paths, best_movies, best_ratings, certificates = data["Poster_Link"][top_idx][::-1].tolist(), \
+											data["Series_Title"][top_idx][::-1].tolist(), \
+											data["IMDB_Rating"][top_idx][::-1].tolist(), \
+											data["Certificate"][top_idx][::-1].tolist()
 	for movie in rated_movies.keys():
 		if movie in best_movies:
 			index = best_movies.index(movie)
 			best_movies.pop(index)
 			best_ratings.pop(index)
-	best_movies = best_movies[:10]
-	best_ratings = best_ratings[:10]
+	best_movies = best_movies[:20]
+	best_ratings = best_ratings[:20]
 	
 	print()
-	for i, j in  zip(best_movies, best_ratings):
-		print(i, j)
+	for i in (range(len(best_movies))):
+		print(best_movies[i], best_ratings[i])
+	output = []
+	for i in (range(len(best_movies))):
+		output.append({"name": best_movies[i], "rating": best_ratings[i], "url": http_paths[i], "certificate": certificates[i]})
 
 
 df = query_database()
-user1 = {"name": "sam", "rated_movies": {"The Matrix":1, "Alien":1, "The Shining":1, }}
-user2 = {"name": "colin", "rated_movies": {"The Lord of the Rings: The Return of the King":1}}
+user1 = {"name": "sam", "rated_movies": {"The Matrix":1, "Alien":1, "The Shining":1}}
+user2 = {"name": "colin", "rated_movies": {"The Lord of the Rings: The Return of the King":1, "Titanic":0}}
 data = vectorize_data(df)
 
-get_recomendations(user1, data)
+get_recomendations(user2, data)
