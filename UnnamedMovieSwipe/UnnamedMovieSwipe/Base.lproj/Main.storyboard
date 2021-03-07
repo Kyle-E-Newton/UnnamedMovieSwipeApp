@@ -461,7 +461,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dmg-80-ijB">
-                                <rect key="frame" x="0.0" y="367" width="414" height="162"/>
+                                <rect key="frame" x="0.0" y="333" width="414" height="230"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
                         </subviews>
@@ -545,7 +545,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="conversationCell" textLabel="oW0-R2-Wab" detailTextLabel="s8c-k0-mje" style="IBUITableViewCellStyleSubtitle" id="sab-mS-Jkb">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="conversationCell" textLabel="oW0-R2-Wab" detailTextLabel="s8c-k0-mje" style="IBUITableViewCellStyleSubtitle" id="sab-mS-Jkb" customClass="ConversationCell" customModule="UnnamedMovieSwipe" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="55.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sab-mS-Jkb" id="XSk-nG-dU6">
@@ -568,6 +568,10 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="messageLabel" destination="oW0-R2-Wab" id="vX4-Ql-NgP"/>
+                                    <outlet property="senderLabel" destination="s8c-k0-mje" id="Gs1-3K-91R"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

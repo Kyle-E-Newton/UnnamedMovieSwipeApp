@@ -24,14 +24,8 @@ class MessagesViewController : UITableViewController {
         let row = indexPath.row
         let cell = tableView.dequeueReusableCell(withIdentifier: "conversationCell", for: indexPath) as! ConversationCell
         
-
-//        cell.quote.text = quotes[row].quote
-//
-//        if self.showAuthors {
-//            cell.author.text = quotes[row].author
-//        } else {
-//            cell.author.text = ""
-//        }
+        cell.messageLabel.text = self.conversation?.getMessages()[row].text
+        cell.senderLabel.text = self.conversation?.getMessages()[row].sender?.userName
 
         return cell
     }

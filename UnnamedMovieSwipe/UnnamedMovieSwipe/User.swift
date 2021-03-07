@@ -10,18 +10,20 @@ import UIKit
 class User {
     
     var userName : String?
-    var email : String?
+    var email : String
     var userID : String
     var likedMovies : [Movie]?
     var dislikedMovies : [Movie]?
     var picture : UIImage?
     var bio : String?
-    var password : String?
+    var password : String
+    var conversations : [Conversation]
     
     init(userID : String, email : String, password : String) {
         self.userID = userID
         self.email = email
         self.password = password
+        self.conversations = []
     }
     
     func setUsername(name : String) {
@@ -50,5 +52,9 @@ class User {
     
     func setPassword(password : String) {
         self.password = password
+    }
+    
+    func addConversation(conversation : Conversation) {
+        self.conversations.append(conversation)
     }
 }
