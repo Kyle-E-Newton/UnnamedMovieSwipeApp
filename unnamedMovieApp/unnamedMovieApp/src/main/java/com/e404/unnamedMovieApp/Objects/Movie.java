@@ -5,9 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.sql.Date;
+import java.util.Date;
 
-@AllArgsConstructor
 @Document(collection = "movies")
 public class Movie {
 
@@ -19,4 +18,13 @@ public class Movie {
     @Getter @Setter private String language;
     @Getter @Setter private String rating;
 
+    public Movie(String title, Date releaseDate, String genre, int duration, String country, String language, String rating) {
+        this.title = title;
+        this.releaseDate = releaseDate;
+        this.genre = genre;
+        this.duration = duration;
+        this.country = country;
+        this.language = language;
+        this.rating = rating;
+    }
 }
