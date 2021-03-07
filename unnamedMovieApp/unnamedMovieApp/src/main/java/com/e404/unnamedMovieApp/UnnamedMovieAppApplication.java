@@ -1,6 +1,7 @@
 package com.e404.unnamedMovieApp;
 
 import com.e404.unnamedMovieApp.Database.CSVReader;
+import com.e404.unnamedMovieApp.Database.JythonRunner;
 import com.e404.unnamedMovieApp.Objects.Movie;
 import com.e404.unnamedMovieApp.Repository.IMovieRepository;
 import com.e404.unnamedMovieApp.Repository.IUserRepository;
@@ -55,6 +56,8 @@ public class UnnamedMovieAppApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		logger.info("CSV");
-		readCSV();
+		//readCSV();
+		JythonRunner runner = new JythonRunner();
+		runner.TestPythonCode();
 	}
 }

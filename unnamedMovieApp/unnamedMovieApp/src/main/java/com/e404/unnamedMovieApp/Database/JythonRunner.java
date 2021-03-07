@@ -10,13 +10,11 @@ import org.python.core.*;
 
 import static org.junit.Assert.assertEquals;
 
-public class Jython {
-    @Test
-    public void givenPythonInterpreter_whenNumbersAdded_thenOutputDisplayed() {
-        try (PythonInterpreter pyInterp = new PythonInterpreter()) {
-            pyInterp.exec("train.py");
-            PyObject x = pyInterp.get("x");
-            assertEquals("x: ", 20, x.asInt());
+public class JythonRunner {
+
+    public void TestPythonCode() {
+        try(PythonInterpreter interpreter = new PythonInterpreter()) {
+            interpreter.exec("print('Hello World')");
         }
     }
 }
