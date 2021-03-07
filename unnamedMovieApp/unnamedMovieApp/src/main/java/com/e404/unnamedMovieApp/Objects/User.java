@@ -12,15 +12,15 @@ import java.util.UUID;
 @Document(collection = "users")
 public class User {
 
-    @Getter @Setter private UUID uuid;
-    @Getter @Setter private String username;
-    @Getter @Setter private String email;
-    @Getter @Setter private List<Movie> likedMovies;
-    @Getter @Setter private List<Movie> dislikedMovies;
-    @Getter @Setter private String bio;
+    @Getter @Setter public UUID uuid;
+    @Getter @Setter public String username;
+    @Getter @Setter public String email;
+    @Getter @Setter public List<Movie> likedMovies;
+    @Getter @Setter public List<Movie> dislikedMovies;
+    @Getter @Setter public String bio;
     @JsonIgnore
-    @Getter @Setter private String encodedPassword;
-    @Getter @Setter private List<Conversation> conversations;
+    @Getter @Setter public String encodedPassword;
+    @Getter @Setter public List<Conversation> conversations;
 
     public User(String username, String email, String bio, String encodedPassword) {
         uuid = UUID.randomUUID();

@@ -5,4 +5,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface IUserRepository extends MongoRepository<User, String> {
     User findUserByuuid(String uuid);
+    void deleteUserByuuid(String uuid);
+
 }
