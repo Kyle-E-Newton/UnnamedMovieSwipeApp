@@ -48,4 +48,18 @@ class EditViewController : UIViewController, UIPickerViewDelegate, UIPickerViewD
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerData[row]
     }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
+    {
+        let defaults = UserDefaults.standard
+        // use the row to get the selected row from the picker view
+        // using the row extract the value from your datasource (array[row])
+        if attribute == "Ratings" {
+            defaults.set(self.pickerData[row], forKey: "rating")
+        } else if attribute == "Country" {
+            defaults.set(self.pickerData[row], forKey: "country")
+        } else if attribute == "Duration" {
+            defaults.set(self.pickerData[row], forKey: "duration")
+        }
+    }
 }

@@ -14,11 +14,23 @@ class MainViewController: UIViewController {
     @IBOutlet weak var movieGenreLabel: UILabel!
     @IBOutlet weak var movieRatingLabel: UILabel!
     
+    @IBOutlet weak var messagesButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.registerSettingsBundle()
+        
+        let defaults = UserDefaults.standard
+        
+        self.messagesButton.isEnabled = defaults.bool(forKey: "enableMessaging")
         
         // Do any additional setup after loading the view.
         self.updateView(movieTitle: "Interstellar", movieDescription: "In Earth's future, a global crop blight and second Dust Bowl are slowly rendering the planet uninhabitable. Professor Brand (Michael Caine), a brilliant NASA physicist, is working on plans to save mankind by transporting Earth's population to a new home via a wormhole.", movieGenre: "Sci-fi/Adventure", movieRating: "PG-13")
+    }
+    
+    func registerSettingsBundle() {
+       let appDefaults = [String:AnyObject]()
+        UserDefaults.standard.register(defaults: appDefaults)
     }
     
     func updateView(movieTitle : String, movieDescription : String, movieGenre : String, movieRating : String) {
@@ -44,6 +56,9 @@ class MainViewController: UIViewController {
         
         if segue.identifier == "unwindToMain" {
             // update settings
+            let defaults = UserDefaults.standard
+            
+            self.messagesButton.isEnabled = defaults.bool(forKey: "enableMessaging")
         }
     }
 }

@@ -24,6 +24,9 @@
 		23AD639A25F4597E00232D09 /* ConversationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AD639925F4597E00232D09 /* ConversationCell.swift */; };
 		23AD639D25F4622200232D09 /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AD639C25F4622200232D09 /* ConversationViewController.swift */; };
 		23AD63B525F477E500232D09 /* CreateConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AD63B425F477E500232D09 /* CreateConversationViewController.swift */; };
+		23AD63B825F4800200232D09 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 23AD63B725F4800200232D09 /* Settings.bundle */; };
+		23AD63BF25F48DD700232D09 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AD63BE25F48DD700232D09 /* MovieCell.swift */; };
+		23AD63C325F48E9600232D09 /* CommonMoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AD63C225F48E9600232D09 /* CommonMoviesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +49,9 @@
 		23AD639925F4597E00232D09 /* ConversationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationCell.swift; sourceTree = "<group>"; };
 		23AD639C25F4622200232D09 /* ConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
 		23AD63B425F477E500232D09 /* CreateConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateConversationViewController.swift; sourceTree = "<group>"; };
+		23AD63B725F4800200232D09 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		23AD63BE25F48DD700232D09 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
+		23AD63C225F48E9600232D09 /* CommonMoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonMoviesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +102,9 @@
 				23AD639925F4597E00232D09 /* ConversationCell.swift */,
 				23AD639C25F4622200232D09 /* ConversationViewController.swift */,
 				23AD63B425F477E500232D09 /* CreateConversationViewController.swift */,
+				23AD63BE25F48DD700232D09 /* MovieCell.swift */,
+				23AD63C225F48E9600232D09 /* CommonMoviesViewController.swift */,
+				23AD63B725F4800200232D09 /* Settings.bundle */,
 			);
 			path = UnnamedMovieSwipe;
 			sourceTree = "<group>";
@@ -157,6 +166,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23AD63B825F4800200232D09 /* Settings.bundle in Resources */,
 				23AD636B25F40CF100232D09 /* LaunchScreen.storyboard in Resources */,
 				23AD636825F40CF100232D09 /* Assets.xcassets in Resources */,
 				23AD636625F40CEE00232D09 /* Main.storyboard in Resources */,
@@ -178,9 +188,11 @@
 				23AD637925F4189700232D09 /* Movie.swift in Sources */,
 				23AD638F25F4517000232D09 /* Conversation.swift in Sources */,
 				23AD637C25F41A9200232D09 /* User.swift in Sources */,
+				23AD63BF25F48DD700232D09 /* MovieCell.swift in Sources */,
 				23AD637525F40FAC00232D09 /* MainViewController.swift in Sources */,
 				23AD639A25F4597E00232D09 /* ConversationCell.swift in Sources */,
 				23AD638C25F4506900232D09 /* Message.swift in Sources */,
+				23AD63C325F48E9600232D09 /* CommonMoviesViewController.swift in Sources */,
 				23AD638625F4327500232D09 /* SettingsViewController.swift in Sources */,
 				23AD638925F4380900232D09 /* EditViewController.swift in Sources */,
 				23AD63B525F477E500232D09 /* CreateConversationViewController.swift in Sources */,
