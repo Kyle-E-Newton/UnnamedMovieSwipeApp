@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2328DE5125F4BFD60011FB07 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2328DE5025F4BFD60011FB07 /* LoginViewController.swift */; };
 		23AD635F25F40CEE00232D09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AD635E25F40CEE00232D09 /* AppDelegate.swift */; };
 		23AD636125F40CEE00232D09 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AD636025F40CEE00232D09 /* SceneDelegate.swift */; };
 		23AD636625F40CEE00232D09 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23AD636425F40CEE00232D09 /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2328DE5025F4BFD60011FB07 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		23AD635B25F40CEE00232D09 /* UnnamedMovieSwipe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnnamedMovieSwipe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23AD635E25F40CEE00232D09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23AD636025F40CEE00232D09 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				23AD63BE25F48DD700232D09 /* MovieCell.swift */,
 				23AD63C225F48E9600232D09 /* CommonMoviesViewController.swift */,
 				23AD63B725F4800200232D09 /* Settings.bundle */,
+				2328DE5025F4BFD60011FB07 /* LoginViewController.swift */,
 			);
 			path = UnnamedMovieSwipe;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				23AD639A25F4597E00232D09 /* ConversationCell.swift in Sources */,
 				23AD638C25F4506900232D09 /* Message.swift in Sources */,
 				23AD63C325F48E9600232D09 /* CommonMoviesViewController.swift in Sources */,
+				2328DE5125F4BFD60011FB07 /* LoginViewController.swift in Sources */,
 				23AD638625F4327500232D09 /* SettingsViewController.swift in Sources */,
 				23AD638925F4380900232D09 /* EditViewController.swift in Sources */,
 				23AD63B525F477E500232D09 /* CreateConversationViewController.swift in Sources */,
@@ -343,12 +347,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F4XU26VFDN;
 				INFOPLIST_FILE = UnnamedMovieSwipe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.UnnamedMovieSwipe;
+				PRODUCT_BUNDLE_IDENTIFIER = com.david.UnnamedMovieSwipe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -361,12 +366,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F4XU26VFDN;
 				INFOPLIST_FILE = UnnamedMovieSwipe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.UnnamedMovieSwipe;
+				PRODUCT_BUNDLE_IDENTIFIER = com.david.UnnamedMovieSwipe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -17,8 +17,10 @@ class Movie {
     var country : String?
     var language : String?
     var rating : String?
+    var description : String?
+    var imageURL : String
     
-    init(uniqueID : String, title : String, release : Date, genre : String, duration : Int, country : String, language : String, rating : String) {
+    init(uniqueID : String, title : String, release : Date, genre : String, duration : Int, country : String, language : String, rating : String, description : String, imageURL : String) {
         
         self.uniqueID = uniqueID
         self.title = title
@@ -28,5 +30,7 @@ class Movie {
         self.country = country
         self.language = language
         self.rating = rating
+        self.description = description
+        self.imageURL = imageURL
     }
 }
