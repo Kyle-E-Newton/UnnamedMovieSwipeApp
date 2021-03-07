@@ -36,6 +36,13 @@ class MainViewController: UIViewController {
         self.moviePosterImageView.image = self.getMovieAPICall(url: "https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX67_CR0,0,67,98_AL_.jpg")
     }
     
+    // Initialize
+    func checkMovieList() {
+        if self.currentMovies?.count == 0 {
+            self.getMovieAPICall(url: <#T##String#>)
+        }
+    }
+    
     func getMovieAPICall(url : String) -> UIImage? {
         let url = URL(string: url)
         let group = DispatchGroup()
@@ -79,6 +86,7 @@ class MainViewController: UIViewController {
         self.updateView(movie: self.currentMovies![0])
         // move movie to users dislike list
         // display next movie
+        self.checkMovieList()
     }
     
     @IBAction func skipButtonPressed(_ sender: Any) {
@@ -86,6 +94,7 @@ class MainViewController: UIViewController {
         self.updateView(movie: self.currentMovies![0])
         // remove movie form movie list
         // display next movie
+        self.checkMovieList()
     }
     
     @IBAction func likeButtonPressed(_ sender: Any) {
@@ -94,6 +103,15 @@ class MainViewController: UIViewController {
         self.updateView(movie: self.currentMovies![0])
         // move movie to users like list
         // display next movie
+        self.checkMovieList()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            
+        if segue.identifier == "mainToSettings" {
+            let settingsVC = segue.destination as! SettingsViewController
+            settingsVC.bioTextField.text = currentUser?.bio
+        }
     }
     
     @IBAction func unwind( _ segue: UIStoryboardSegue) {

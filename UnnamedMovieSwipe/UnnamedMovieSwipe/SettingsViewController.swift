@@ -26,10 +26,7 @@ class SettingsViewController : UITableViewController {
     @IBOutlet weak var messagingSwitch: UISwitch!
     @IBOutlet weak var durationView: UIView!
     
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var pictureView: UIView!
     @IBOutlet weak var bioTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,6 +65,14 @@ class SettingsViewController : UITableViewController {
         }
     }
     
+    func getProfile() {
+        
+    }
+    
+    func setProfileAPI() {
+        
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             
         if segue.identifier == "ratingsSegue" {
@@ -91,7 +96,6 @@ class SettingsViewController : UITableViewController {
     @IBAction func unwind( _ segue: UIStoryboardSegue) {
         
         if segue.identifier == "unwindToSettings" {
-
         }
     }
     
