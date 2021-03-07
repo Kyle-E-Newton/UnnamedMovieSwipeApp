@@ -22,6 +22,8 @@
 		23AD638C25F4506900232D09 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AD638B25F4506900232D09 /* Message.swift */; };
 		23AD638F25F4517000232D09 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AD638E25F4517000232D09 /* Conversation.swift */; };
 		23AD639A25F4597E00232D09 /* ConversationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AD639925F4597E00232D09 /* ConversationCell.swift */; };
+		23AD639D25F4622200232D09 /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AD639C25F4622200232D09 /* ConversationViewController.swift */; };
+		23AD63B525F477E500232D09 /* CreateConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AD63B425F477E500232D09 /* CreateConversationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		23AD638B25F4506900232D09 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		23AD638E25F4517000232D09 /* Conversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
 		23AD639925F4597E00232D09 /* ConversationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationCell.swift; sourceTree = "<group>"; };
+		23AD639C25F4622200232D09 /* ConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
+		23AD63B425F477E500232D09 /* CreateConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateConversationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +94,8 @@
 				23AD638B25F4506900232D09 /* Message.swift */,
 				23AD638E25F4517000232D09 /* Conversation.swift */,
 				23AD639925F4597E00232D09 /* ConversationCell.swift */,
+				23AD639C25F4622200232D09 /* ConversationViewController.swift */,
+				23AD63B425F477E500232D09 /* CreateConversationViewController.swift */,
 			);
 			path = UnnamedMovieSwipe;
 			sourceTree = "<group>";
@@ -167,6 +173,7 @@
 				23AD635F25F40CEE00232D09 /* AppDelegate.swift in Sources */,
 				23AD638225F41CB100232D09 /* MessagesViewController.swift in Sources */,
 				23AD637F25F41C7400232D09 /* MessagesCell.swift in Sources */,
+				23AD639D25F4622200232D09 /* ConversationViewController.swift in Sources */,
 				23AD636125F40CEE00232D09 /* SceneDelegate.swift in Sources */,
 				23AD637925F4189700232D09 /* Movie.swift in Sources */,
 				23AD638F25F4517000232D09 /* Conversation.swift in Sources */,
@@ -176,6 +183,7 @@
 				23AD638C25F4506900232D09 /* Message.swift in Sources */,
 				23AD638625F4327500232D09 /* SettingsViewController.swift in Sources */,
 				23AD638925F4380900232D09 /* EditViewController.swift in Sources */,
+				23AD63B525F477E500232D09 /* CreateConversationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

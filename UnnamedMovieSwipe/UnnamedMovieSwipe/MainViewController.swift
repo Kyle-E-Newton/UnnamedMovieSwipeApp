@@ -32,6 +32,10 @@ class MainViewController: UIViewController {
         // do something
     }
     
+    @IBAction func skipButtonPressed(_ sender: Any) {
+        // do something
+    }
+    
     @IBAction func likeButtonPressed(_ sender: Any) {
         // do something
     }

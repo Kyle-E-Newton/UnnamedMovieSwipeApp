@@ -15,7 +15,7 @@ class User {
     var likedMovies : [Movie]?
     var dislikedMovies : [Movie]?
     var picture : UIImage?
-    var bio : String?
+    var bio : String
     var password : String
     var conversations : [Conversation]
     
@@ -24,6 +24,7 @@ class User {
         self.email = email
         self.password = password
         self.conversations = []
+        self.bio = ""
     }
     
     func setUsername(name : String) {
