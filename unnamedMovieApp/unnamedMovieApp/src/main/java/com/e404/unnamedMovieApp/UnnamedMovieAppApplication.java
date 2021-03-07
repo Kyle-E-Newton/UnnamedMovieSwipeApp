@@ -1,9 +1,8 @@
 package com.e404.unnamedMovieApp;
 
-import com.e404.unnamedMovieApp.Database.CSVReader;
-import com.e404.unnamedMovieApp.Objects.Movie;
 import com.e404.unnamedMovieApp.Repository.IMovieRepository;
 import com.e404.unnamedMovieApp.Repository.IUserRepository;
+import com.opencsv.CSVReader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +12,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.sql.Date;
-import java.time.LocalDate;
+import java.io.Reader;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -34,21 +34,20 @@ public class UnnamedMovieAppApplication implements CommandLineRunner {
 		SpringApplication.run(UnnamedMovieAppApplication.class, args);
 	}
 
-	public void readCSV() {
-		logger.info("Read CSV Bean");
-		try (BufferedReader br = new BufferedReader(new FileReader("imdb_top_1000.csv"))) {
+	public void readCSV() throws Exception {
+		movieRepository.deleteAll();
 
-			List<List<String>> result = new ArrayList<>();
-			String line;
-			while ((line = br.readLine()) != null) {
-				String[] values = line.split(",");
-				result.add(Arrays.asList(values));
-			}
-
-			System.out.println(result);
+		Reader reader = Files.newBufferedReader(Paths.get("unnamedMovieApp/unnamedMovieApp/src/main/resources/IMDb movies.csv"));
+		List<String[]> list = new ArrayList<>();
+		CSVReader csvReader = new CSVReader(reader);
+		String[] line;
+		csvReader.readNext();
+		while((line = csvReader.readNext()) != null) {
+			list.add(line);
 		}
-		catch (Exception e) {
-
+		com.e404.unnamedMovieApp.Database.CSVReader myCsvReader = new com.e404.unnamedMovieApp.Database.CSVReader();
+		for(String[] l: list) {
+			movieRepository.insert(myCsvReader.MovieFromRecord(Arrays.asList(l)));
 		}
 	}
 
