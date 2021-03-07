@@ -23,14 +23,13 @@ public class CSVReader {
         //log.info(line.get(6));
         Movie movie = new Movie();
         movie.setTitle(line.get(1));
-        movie.setTitle(line.get(2));
-        movie.setReleaseDate(line.get(4));
+        movie.setReleaseDate(line.get(2));
         movie.setGenre(line.get(5));
-        movie.setDuration(Integer.valueOf(line.get(6)));
-        movie.setCountry(line.get(7));
-        movie.setLanguage(line.get(8));
-        movie.setRating(line.get(14));
-        movie.setDescription(line.get(13));
+        movie.setDuration(Integer.valueOf(line.get(4).substring(0, line.get(4).indexOf(' '))));
+        movie.setCountry("USA");
+        movie.setLanguage("English");
+        movie.setRating(line.get(6));
+        movie.setDescription(line.get(7));
         return movie;
     }
 }

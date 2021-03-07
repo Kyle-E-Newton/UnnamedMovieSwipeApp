@@ -84,7 +84,7 @@ def get_recomendations(user, data):
 
 	print()
 	for i in (range(len(best_movies))):
-		print(best_movies[i], best_ratings[i])
+		print(best_movies[i])
 	output = []
 	for i in (range(len(best_movies))):
 		output.append(best_movies[i])

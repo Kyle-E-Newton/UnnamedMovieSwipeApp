@@ -11,8 +11,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -38,7 +36,7 @@ public class UnnamedMovieAppApplication implements CommandLineRunner {
 	public void readCSV() throws Exception {
 		movieRepository.deleteAll();
 
-		Reader reader = Files.newBufferedReader(Paths.get("unnamedMovieApp/unnamedMovieApp/src/main/resources/IMDb movies.csv"));
+		Reader reader = Files.newBufferedReader(Paths.get("unnamedMovieApp/unnamedMovieApp/src/main/resources/imdb_top_1000.csv"));
 		List<String[]> list = new ArrayList<>();
 		CSVReader csvReader = new CSVReader(reader);
 		String[] line;
@@ -50,13 +48,14 @@ public class UnnamedMovieAppApplication implements CommandLineRunner {
 		for(String[] l: list) {
 			movieRepository.insert(myCsvReader.MovieFromRecord(Arrays.asList(l)));
 		}
+		logger.debug("Finished Reading Movies");
 	}
 
 	@Override
 	public void run(String... args) throws Exception {
 		logger.info("CSV");
-		//readCSV();
+		readCSV();
 		PythonCompat runner = new PythonCompat();
-		runner.TestPythonCode();
+		runner.GetAlgorithmOutput();
 	}
 }
