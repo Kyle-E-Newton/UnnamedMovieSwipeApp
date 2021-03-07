@@ -2,11 +2,14 @@ package com.e404.unnamedMovieApp.Objects;
 
 import lombok.Getter;
 import lombok.Setter;
+import net.minidev.json.annotate.JsonIgnore;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+@Document(collection = "users")
 public class User {
 
     @Getter @Setter private UUID uuid;
@@ -15,6 +18,7 @@ public class User {
     @Getter @Setter private List<Movie> likedMovies;
     @Getter @Setter private List<Movie> dislikedMovies;
     @Getter @Setter private String bio;
+    @JsonIgnore
     @Getter @Setter private String encodedPassword;
     @Getter @Setter private List<Conversation> conversations;
 
